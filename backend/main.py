@@ -7,7 +7,11 @@ FastAPI application for monitoring log analytics.
 import os
 from typing import Any, Dict, List
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, File, HTTPException, Query, UploadFile
+
+# Load environment variables from .env file
+load_dotenv()
 from fastapi.middleware.cors import CORSMiddleware
 
 from models.data_models import EndpointStat, HealthStatus, LogEntry, Metrics
@@ -21,6 +25,7 @@ from services.storage import LogStore
 
 API_PREFIX = "/api"
 LOG_FILE_PATH = os.getenv("LOG_FILE", "./data/monitoring.jsonl")
+print(LOG_FILE_PATH)
 
 # ──────────────────────────────────────────────────────────────────────────────
 # FastAPI Application
