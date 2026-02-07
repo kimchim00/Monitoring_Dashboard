@@ -1,3 +1,4 @@
 fastapi
 uvicorn[standard]
 python-dateutil
+python-dotenv
